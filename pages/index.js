@@ -1,5 +1,4 @@
 import { useState } from "react";
-import axios from "axios";
 
 export default function Home() {
   const [question, setQuestion] = useState("");
@@ -11,8 +10,16 @@ export default function Home() {
     setLoading(true);
     setResponse(null);
     try {
-      const res = await axios.post("https://xvaai-guru.vercel.app/api/chat", { text: question });
-      setResponse(res.data);
+      const res = await fetch("https://xvaai-guru.vercel.app/api/chat", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ text: question }),
+      });
+
+      const data = await res.json();
+      setResponse(data);
     } catch (err) {
       setResponse({ error: err.message });
     } finally {
@@ -105,7 +112,7 @@ export default function Home() {
           >
             <strong>Jawaban:</strong>
             <p style={{ marginTop: "0.5rem", whiteSpace: "pre-wrap" }}>
-              {response.message || response.error}
+              {response.message || response.error || "Tidak ada jawaban."}
             </p>
           </div>
         )}
