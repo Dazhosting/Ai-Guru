@@ -178,7 +178,7 @@ export default function Home() {
   };
   
   // Ganti dengan email Anda untuk laporan bug
-  const reportEmail = "ganti-dengan-email-anda@example.com";
+  const reportEmail = "vercelteam1003@gmail.com";
   const reportSubject = "Laporan Bug - AI Guru";
   const reportBody = "Halo, saya menemukan bug/error.\n\nLangkah-langkah untuk mereproduksi:\n1. ...\n2. ...\n\nDeskripsi error:\n...";
 
