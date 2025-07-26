@@ -11,7 +11,7 @@ export default function Home() {
     setLoading(true);
     setResponse(null);
     try {
-      const res = await axios.post("/api/chat", { text: question });
+      const res = await axios.post("https://xvaai-guru.vercel.app/api/chat", { text: question });
       setResponse(res.data);
     } catch (err) {
       setResponse({ error: err.message });
